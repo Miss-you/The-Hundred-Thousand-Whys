@@ -13,3 +13,5 @@ lambda问题有四：
 定位问题的方式只能靠日志和告警
 
 个人看好serverless概念但起码lambda不是我期望的
+
+## serverless的一些司空见惯的优势
