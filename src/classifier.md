@@ -62,3 +62,10 @@
 本人当前了解到的生产级分布式限流均是集中式限流方案：
 全局限流状态在一个集中式节点/集群维护（比如redis等），定期向这个中心计数或者取令牌
 集中式节点/集群也存在可能性不可用，若不可用，则通常办法是将分布式限流退化成单机限流。
+
+## Apache APISIX 毕业贺词
+
+“Congratulations to Apache APISIX for graduating as an Apache Top-Level Project,” said Hui Li, Engineer at Tencent Cloud. “Recent growth in demand for interconnection between mobile applications, enterprise interoperability, and the Internet of Things have expanded backend service support objects from single Web applications to a variety of usage scenarios. This increases both the access pressure and the complexity of backend services. A suitable solution for this issue is an API Gateway: in addition to basic request forwarding, protocol conversion, routing and other functions such as high performance and high stability, it also has good scalability and can continuously enhance the capabilities of the gateway. We evaluated many API gateways, and finally chose Apache APISIX as the core component of our new generation API gateway because of its high performance, high scalability, and active community. I hope to see APISIX’s future development have a far-reaching impact on the microservices field.”
+
+
+
