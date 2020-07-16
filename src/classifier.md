@@ -67,5 +67,5 @@
 
 “Congratulations to Apache APISIX for graduating as an Apache Top-Level Project,” said Hui Li, Engineer at Tencent Cloud. “Recent growth in demand for interconnection between mobile applications, enterprise interoperability, and the Internet of Things have expanded backend service support objects from single Web applications to a variety of usage scenarios. This increases both the access pressure and the complexity of backend services. A suitable solution for this issue is an API Gateway: in addition to basic request forwarding, protocol conversion, routing and other functions such as high performance and high stability, it also has good scalability and can continuously enhance the capabilities of the gateway. We evaluated many API gateways, and finally chose Apache APISIX as the core component of our new generation API gateway because of its high performance, high scalability, and active community. I hope to see APISIX’s future development have a far-reaching impact on the microservices field.”
 
-
+"恭喜Apache APISIX毕业成为Apache顶级项目。"腾讯云工程师李晖表示。"近期移动应用之间的互联互通、企业互操作、物联网等需求的增长，使得后端服务支持对象从单一的Web应用扩展到各种使用场景。这既增加了后端服务的接入压力，也增加了后端服务的复杂性。针对这一问题，一个合适的解决方案就是API网关：除了基本的请求转发、协议转换、路由选择等高性能、高稳定性的功能外，还具有良好的扩展性，可以不断提升网关的能力。我们评估了很多API网关，最终选择了Apache APISIX作为新一代API网关的核心组件，因为它的高性能、高扩展性和活跃的社区。我希望看到APISIX未来的发展能够对微服务领域产生深远的影响。"
 
