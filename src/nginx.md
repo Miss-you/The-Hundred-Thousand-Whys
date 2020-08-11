@@ -11,3 +11,7 @@ shutdown timeout
 
 虽然这个功能早在 nginx/1.11.11 就加入了，但是没有完全覆盖到所有的情况，例如上文所述的 websocket 连接的处理，那部分代码并没有判断 c->close 和 c->error 的状态位。所以仍然无法尽快终止这些 websocket 连接。直到 nginx/1.13.7，这个问题才被修复。所以如果读者们遇到类似的问题，可以考虑升级 nginx 至少到 1.13.7 版本。
 
+## nginx TCP_NODELAY 和 TCP_NOPUSH配置
+
+
+## nginx 转发请求body被截断
