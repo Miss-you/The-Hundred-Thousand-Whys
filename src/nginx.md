@@ -15,3 +15,11 @@ shutdown timeout
 
 
 ## nginx 转发请求body被截断
+
+## 业界网关情况
+
+- 百度接入网关是bfe，golang的
+- 阿里是tengine的slb
+- 腾讯是基于nginx的clb，正在自己重写C++版本的网关，但并不考虑太多旧向兼容
+- 腾讯ieg是基于envoy istio 做的东西向南北向统一网关
+- 网易是网易轻舟的envoy+luajit+kong插件 + istio的网关（同时融合了mesh
