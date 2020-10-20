@@ -1,0 +1,3 @@
+## TypeScript
+
+2012年10月，微软发布TypeScript。它是一种开源编程语言，C#首席架构师、Delphi和Turbo Pascal创始人Anders Hejlsberg参与了开发。它是JavaScript的严格超集，可编译为纯JavaScript，并添加了可选的静态类型和基于类的面向对象编程。
