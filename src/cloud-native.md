@@ -61,3 +61,9 @@ istio成为servemesh默认标准的时间会拉长，而且会增加很多变数
 ## PV/PVC 是什么？
 
 ## Kubernetes 官方文档？
+
+## 对于东西向、南北向流量融合的看法
+
+听了下邀请的openshift的架构师的分享，了解到实际上Openshift 虽然集成了istio 1.6，但当前使用istio的客户也是更愿意采用haproxy ingress（openshift 默认ingress）作为南北向，istio envoy作为东西向。我觉得南北和东西向融合应该这么理解，可以使用一套代码（istio ingress+envoy/istio+envoy），但在体验上应该是两个产品，就比如ingress更关注WAL能力、入口能力（比如dns自动解析、自定义域名、集成cdn/anycast/waf等）、https卸载（https功能相关的一些产品功能），跟服务网格产品上还是有比较大差异。
+
+简而言之，东西向、南北向融合是一个技术概念而不是一个产品概念。
