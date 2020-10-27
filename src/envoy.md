@@ -12,3 +12,21 @@
 - 腾讯是基于nginx的clb，正在自己重写C++版本的网关，但并不考虑太多旧向兼容
 - 腾讯ieg是基于envoy istio 做的东西向南北向统一网关
 - 网易是网易轻舟的envoy+luajit+kong插件 + istio的网关（同时融合了mesh
+
+
+## lua on envoy 缺少的功能
+
+1. 当前不支持正则表达式
+2. 当前不支持core.log日志打印
+3. 不支持schema校验，jsonschema
+4. 不支持cosocket
+5. 需要更快更好的json库
+6. 
+
+## envoy apisix.core 的一些设计思路
+
+1. 如何管理配置？xDS metadata下发配置
+2. apisix.core就是做了一层封装，比如屏蔽or平台和envoy平台接口差异，比如封装日志打印接口、封装内存池、之类的
+3. 为什么不是ngx-lua-module？过去or出现主要原因是nginx没有调用luajit逻辑，但envoy有luafilter，or这个nginx模块或许不是那么必要。实际上来看也是如此
+
+设计理念的经验：那么不同平台接口差异怎么屏蔽？很简单，加一个中间层，那就是apisix.core
