@@ -23,3 +23,12 @@ shutdown timeout
 - 腾讯是基于nginx的clb，正在自己重写C++版本的网关，但并不考虑太多旧向兼容
 - 腾讯ieg是基于envoy istio 做的东西向南北向统一网关
 - 网易是网易轻舟的envoy+luajit+kong插件 + istio的网关（同时融合了mesh
+
+## nginx https常见优化手段
+
+- Session ID 复用
+- OCSP Stapling
+- HSTS
+- HTTP/2
+- False Start
+- 支持 ChaCha20-Poly1305 加密套件
