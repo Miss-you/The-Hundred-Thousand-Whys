@@ -62,3 +62,12 @@ Gzip 是一种用于文件压缩与解压缩的文件格式。它基于 Deflate 
 gzip 仅仅对 body 进行压缩
 
 nginx 处理 gzip 的逻辑
+
+
+## ngx.var.http_HEADER 是不是也有可能出现table的值？
+
+不会，只会取第一个值
+
+## ngx.var.http_$header 和 ngx.req.get_headers 的区别
+
+后续整理
