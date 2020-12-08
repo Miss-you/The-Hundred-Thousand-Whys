@@ -31,3 +31,14 @@ k8s 的 service 代表的是符合某个 selector 的一 系列 pod.k8s 的 pod 
 实际访问链路是什么样的呢？比如说从集群内部的一 个 ClientPod3 去访问 Service，就类似于刚才所演示的一个效果。ClientPod3 首先通过 Coredns 这里去解析出 ServicelP,Coredns 会返回给它 ServiceName 所对应的 serviceIP 是什么，这个 ClientPod3 就会拿这个 ServiceIP 去做请求，它的请求到宿主机的网络之后，就会被 kube- proxy 所配置的 iptables 或者 IPVS 去做一层拦截处理，之后去负载均衡到每一个实际的后端 pod 上面去，这样就实现了一个负载均衡以及服务发现。
 
 对于外部的流量，比如说刚才通过公网访问的一一个请求。它是通过外部的一个负载均衡器 CloudController Manager 去监听 service 的变化之后， 去配置的一个负载均衡器，然后转发到节点上的一个 NodePort 上面去，NodePort 也会经过 kube-proxy 的一个配置的一个 iptables，把 NodePort 的流量转换成 ClusterlP，紧接着转换成后端的一 个 pod 的 IP 地址，去做负载均衡以及服务发现。这就是整个 K8s 服务发现以及 K8s Service 整体的结构。
+
+## 南北向和东西向网关融合
+
+service mesh这里有宣传一个理念，南北向和东西向网关融合。
+
+通常来讲，在微服务体系下，网关分为接入网关和业务网关。
+istio+envoy（service mesh既定标准和实现）本身没有明显的接入网关业务优势（接入网关的难点是在于网络环境、网络穿越、网络隔离），那看起来 istio ingressgateway 只能替代业务网关。
+另一方面，比如比较简单的业务分发，比如路由分发，配置下ingress规则，就可以完成很多常见业务网关要做的事情，感觉没必要再整个业务网关。
+ingress做不了的一些事情，我想了下通常是跟实际服务或业务强绑定的，则我理解就是第三层网关（比如shardingphere proxy），这种也不会被归类为业务网关
+
+所以我觉得service mesh南北向和东西向网关统一，应该是指业务网关和东西向流量的统一
