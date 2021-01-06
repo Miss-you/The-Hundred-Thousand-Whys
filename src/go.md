@@ -33,3 +33,17 @@ str = string(dataArr[:]) //需要先转换成 slice
 ```
 
 ### string 和 []byte 在具体实现有什么区别？为什么要区分它们？性能上有什么差异？（实现差异，性能分析）
+
+
+### string 和 int 互转
+
+golang中字符串和各种int类型之间的相互转换方式：
+
+1. string转成int： 
+int, err := strconv.Atoi(string)
+2. string转成int64： 
+int64, err := strconv.ParseInt(string, 10, 64)
+3. int转成string： 
+string := strconv.Itoa(int)
+4. int64转成string： 
+string := strconv.FormatInt(int64,10)
