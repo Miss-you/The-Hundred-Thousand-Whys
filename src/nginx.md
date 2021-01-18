@@ -63,11 +63,17 @@ gzip 仅仅对 body 进行压缩
 
 nginx 处理 gzip 的逻辑
 
-
-## ngx.var.http_HEADER 是不是也有可能出现table的值？
+## ngx.var.http_HEADER 是不是也有可能出现 table 的值？
 
 不会，只会取第一个值
 
 ## ngx.var.http_$header 和 ngx.req.get_headers 的区别
 
 后续整理
+
+## nginx/openresty 中的 Lua 虚拟机跟 Worker 进程的对应关系是怎样？
+
+一个 worker 进程会有一个 Server 段 LUA 虚拟机以及一个 Stream 段 LUA 虚拟机，分别由 lua-nginx-module 和 stream-lua-nginx-module 控制
+1. resty http 和 resty stream 模块的 lua 虚拟机是分别初始化的。所以：http 请求共用一个虚拟机；http 请求和 stream 流处理是分开的，共享数据比较麻烦
+2. 翻到另外一个细节，lua 虚拟机在 lua_code_cache 打开的时候（不推荐打开），也会为每个 ctx 初始化一个 lua 虚拟机，刚好想起来之前院生给 skywalking ngx module 看的一个 issue
+3. 代码调用链：ngx_http_lua_init_vm->ngx_http_lua_new_state->luaL_newstate

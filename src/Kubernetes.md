@@ -42,3 +42,6 @@ istio+envoy（service mesh既定标准和实现）本身没有明显的接入网
 ingress做不了的一些事情，我想了下通常是跟实际服务或业务强绑定的，则我理解就是第三层网关（比如shardingphere proxy），这种也不会被归类为业务网关
 
 所以我觉得service mesh南北向和东西向网关统一，应该是指业务网关和东西向流量的统一
+
+
+## Kubernetes 中的 PV/PVC 是什么？
