@@ -77,3 +77,12 @@ nginx 处理 gzip 的逻辑
 1. resty http 和 resty stream 模块的 lua 虚拟机是分别初始化的。所以：http 请求共用一个虚拟机；http 请求和 stream 流处理是分开的，共享数据比较麻烦
 2. 翻到另外一个细节，lua 虚拟机在 lua_code_cache 打开的时候（不推荐打开），也会为每个 ctx 初始化一个 lua 虚拟机，刚好想起来之前院生给 skywalking ngx module 看的一个 issue
 3. 代码调用链：ngx_http_lua_init_vm->ngx_http_lua_new_state->luaL_newstate
+
+## 学习时提一个好的问题
+
+主要是这5个问题：
+1. 确认数据下发流程理解是否正确（oss -> master -> agent -> shm <- api_lua）
+2. 数据下发类型，以及触发机制：全量、增量？
+3. 修改配置数据结构的开发流程，比如需要改哪些组件？
+4. 为什么使用 SHM 来存储配置，而不是直接基于 nginx 的 shared_dict？
+5. 平时开发、运维有哪些常用的配置相关脚本，比如查看当前网关加载的配置？
