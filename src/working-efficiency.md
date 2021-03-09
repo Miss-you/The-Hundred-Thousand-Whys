@@ -196,3 +196,4 @@ https://www.processon.com/view/link/5f088eb4637689789d25308b#outline
 2. 监控告警，metric/tracing 确定存在故障（根据metric 做告警，根据tracing 统计作比较）
 3. 确定故障在哪，tracing 调用关系，确定故障出现在哪个service或者endpoint
 4. profile手段（skywalking新能力）或者常见传统性能定位方法，定位单节点问题所在（比如cpu/内存/io/网络 ---> 动态追踪采样 ---> 火焰图）基本可以解决99.9% 问题
+
