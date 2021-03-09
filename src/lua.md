@@ -42,3 +42,14 @@
 12）lua中只有nil和false是表示假的，零在lua中是为真的
 
 13）很多程序需要（）标示才能运行，比如a={["b"]=5},print(a.b)是可运行的，但是 {["b"]=5}.b就会报错，需要（{["b"]=5}）.b才可以
+
+## 为什么 Lua 没有全局锁？
+
+因为 Lua 是多协程，本质是并发，最终工作的就一个线程
+Python 是多线程，会有并行问题
+
+不需要全局锁
+
+## 软件如何能得到认可
+
+Language are accepted and evolved by a social process, not a technical or technological one. Successful languages must have modest or minimal computer resource request.
